@@ -1,0 +1,187 @@
+<html>
+  
+  
+<head>
+  <style>
+  
+.container{
+
+width: 300px;
+height: 500px;
+margin: 0px auto;
+background-color:#FDCE4B;
+box-shadow: 5px 5px 8px grey;
+
+}
+
+
+    
+.top{
+  font-size: 17px;
+ text-align: center;   
+ height: 45px;
+ width: 298px;
+ background-color:#BD986B;
+ color: white;
+ line-height: 10px;
+ border:1px solid black;
+ box-shadow: 5px 5px 8px grey;
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+  
+.btns{  
+padding-top: 10px;
+height: 30px;  
+background-color: #FDCE4B;
+padding-left: 25px;
+}
+
+
+.liststyle{
+list-style: none;
+
+}
+
+.editBtn{
+
+color:white;
+background-color: Green ;
+margin-left: 2px;
+margin-right: 2px;
+border: none;
+}
+
+
+
+.delBtn{
+
+color:white;
+background-color: red ;
+margin-left: 2px;
+margin-right: 2px;
+border: none;
+}
+    
+  </style>
+  
+  
+</head>
+
+<body>
+
+<div class="container">
+    
+<div class="top"><h3>Todo List</h3></div>
+
+
+<div class="btns"><input id="field">
+  <button id="addto" style="color:white; background-color:grey; border:none;margin-left:4px;" onclick="createLi()">Add To</button> </div>    
+<div>
+    <ul id="list">
+        
+        
+       
+    </ul>
+</div>
+    
+      
+    
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<script>
+
+
+
+var a = document.getElementById("list");
+var val = document.getElementById("field");
+var addto = document.getElementById("addto");
+var time = new Date();
+
+function createLi(){
+
+  
+
+ var linew = document.createElement("li");
+ var txt = document.createTextNode(val.value);
+ linew.setAttribute("class","liststyle")
+ linew.appendChild(txt);
+
+ a.appendChild(linew);
+
+
+
+
+ 
+ var btn1 = document.createElement("button");
+ var txt1 = document.createTextNode("Edit")
+ btn1.setAttribute("class","editBtn");
+ btn1.setAttribute("onclick","editt(this)");
+ btn1.appendChild(txt1);
+ linew.appendChild(btn1);
+ 
+ var btn2 = document.createElement("button");
+ var txt2 = document.createTextNode("Delete");
+ btn2.setAttribute("class","delBtn")
+  btn2.setAttribute("onclick","dele(this)");
+ btn2.appendChild(txt2);
+ linew.appendChild(btn2);
+
+
+
+ val.value = "";
+
+
+ 
+}
+
+
+function dele(e){
+    
+
+e.parentNode.remove();
+    
+    
+    
+}
+
+
+function editt(f){
+var z = prompt("Enter a new value",)
+f.parentNode.firstChild.nodeValue = z;
+
+}
+
+console.log(time)
+
+
+</script>
+
+
+
+
+
+
+
+  
+  
+  
+  
+</body>
+
+ 
+</html>
